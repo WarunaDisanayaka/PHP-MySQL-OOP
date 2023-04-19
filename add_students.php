@@ -1,8 +1,10 @@
 <?php
     include_once 'classes/Register.php';
+    include_once 'classes/Student.php';
     $re = new Register();
 
     if ($_SERVER['REQUEST_METHOD']=='POST') {
+
         $register  = $re->addStudent($_POST);
     }
 

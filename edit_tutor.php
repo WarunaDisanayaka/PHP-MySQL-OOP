@@ -2,6 +2,13 @@
     include_once 'classes/Register.php';
     $re = new Register();
 
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+    }
+
+    if ($_SERVER['REQUEST_METHOD']=='POST') {
+        $register  = $re->updateTutor($_POST,$id);
+    }
 
 ?>
 <!doctype html>
@@ -47,41 +54,51 @@
 
 
 <div class="container">
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Username</th>
-      <th scope="col">Course</th>
-      <th scope="col">Qualifications</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php
-        $allTutors=$re->allTutors();
-        if ($allTutors) {
-            while ($row=mysqli_fetch_assoc($allTutors)) {
-    ?>
-    <tr>
-      <td><?php echo $row['name'];?></td>
-      <td><?php echo $row['email'];?></td>
-      <td><?php echo $row['username'];?></td>
-      <td><?php echo $row['course'];?></td>
-      <td><?php echo $row['qualification'];?></td>
-      <td>
-        <a href="edit_tutor.php?id=<?php echo $row['id']?>" class="btn btn-sm btn-warning">Edit</a>
-        <a href="" class="btn btn-sm btn-danger">Delete</a>
-      </td>
-    </tr>
-    <?php
-           }   
-        }
-    ?>
-  </tbody>
-</table>
+<?php
+    if (isset($register)) {
+?>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong><?=$register?></strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
+<?php
+    }
+?>
+<?php
+    $getStd = $re->getTutorById($id);
+    if ($getStd) {
+        while ($row=mysqli_fetch_assoc($getStd)) {
+?>
+<form method="POST">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" value="<?php echo $row['name']?>" name="name" id="name" placeholder="Enter your name">
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" value="<?php echo $row['email']?>"  name="email" id="email" placeholder="Enter your email">
+  </div>
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" value="<?php echo $row['username']?>"  name="username" id="username" placeholder="Enter your username">
+  </div>
+  <div class="mb-3">
+    <label for="qualification" class="form-label">Courses</label>
+    <input type="text" class="form-control" value="<?php echo $row['course']?>" name="course" id="course" placeholder="Enter your courses">
+  </div>
+  <div class="mb-3">
+    <label for="qualification" class="form-label">Qualification</label>
+    <input type="text" class="form-control" value="<?php echo $row['qualification']?>" name="qualification" id="qualification" placeholder="Enter your qualification">
+  </div>
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>
+<?php
+}
+}
+?>
+
+    </div>
+
 
 
     <!-- Optional JavaScript; choose one of the two! -->
