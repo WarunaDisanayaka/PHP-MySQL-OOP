@@ -42,5 +42,13 @@
             }
         }
 
+        public function delete($query){
+            $result = mysqli_query($this->link,$query) or die($this->link->error.__LINE__);
+            if ($result) {
+                return $result;
+            }else{
+                return false;
+            }
+        }
     }
 ?>

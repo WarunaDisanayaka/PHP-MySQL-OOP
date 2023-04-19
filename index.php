@@ -8,12 +8,28 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Hello</title>
+    <title>WebAcademy</title>
+    <style>
+      body {
+        height: 100vh; /* set body height to 100% of viewport height */
+      }
+
+      .container {
+        height: 100%; /* set container height to 100% of parent height (body) */
+        display: flex;
+        justify-content: center; /* center horizontally */
+        align-items: center; /* center vertically */
+      }
+      .text-center{
+        font-size:8rem;
+      }
+
+    </style>
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+   
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,6 +54,11 @@
     </div>
   </div>
 </nav>
+
+<div class="container">
+      <h1 class="text-center">Welcome to WebAcademy</h1>
+    </div>
+
 
     
     <!-- Optional JavaScript; choose one of the two! -->

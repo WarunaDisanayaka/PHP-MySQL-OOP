@@ -194,5 +194,30 @@ class Register
              return $msg;
          }
      }
+
+
+     public function delStudent($id){
+        $delStd = "DELETE FROM student WHERE id='$id'";
+        $result = $result = $this->db->delete($delStd);
+        if ($result) {
+            $msg = "Delete success";
+            return $msg;
+        }else{
+            $msg = "Delete failed";
+            return $msg;
+        }
+     }
+
+     public function delTutor($id){
+        $delStd = "DELETE FROM tutor WHERE id='$id'";
+        $result = $result = $this->db->delete($delStd);
+        if ($result) {
+            $msg = "Delete success";
+            return $msg;
+        }else{
+            $msg = "Delete failed";
+            return $msg;
+        }
+     }
 }
 ?>

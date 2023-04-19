@@ -2,6 +2,10 @@
     include_once 'classes/Register.php';
     $re = new Register();
 
+    if (isset($_GET['id'])) {
+      $id = $_GET['id'];
+      $delTutor = $re->delTutor($id);
+    }
 
 ?>
 <!doctype html>
@@ -14,12 +18,12 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Hello</title>
+    <title>WebAcademy</title>
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -44,7 +48,7 @@
     </div>
   </div>
 </nav>
-
+<h3 class="text-center">Tutors</h3>
 
 <div class="container">
 <table class="table">
@@ -52,9 +56,6 @@
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
-      <th scope="col">Username</th>
-      <th scope="col">Course</th>
-      <th scope="col">Qualifications</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -65,14 +66,11 @@
             while ($row=mysqli_fetch_assoc($allTutors)) {
     ?>
     <tr>
-      <td><?php echo $row['name'];?></td>
+    <td><a href="single_tutor.php?id=<?php echo $row['id']?>"><?php echo $row['name'];?></a></td>
       <td><?php echo $row['email'];?></td>
-      <td><?php echo $row['username'];?></td>
-      <td><?php echo $row['course'];?></td>
-      <td><?php echo $row['qualification'];?></td>
       <td>
         <a href="edit_tutor.php?id=<?php echo $row['id']?>" class="btn btn-sm btn-warning">Edit</a>
-        <a href="" class="btn btn-sm btn-danger">Delete</a>
+        <a href="view_tutors.php?id=<?php echo $row['id']?>" onclick="return confirm('Are your wanna delete')" class="btn btn-sm btn-danger">Delete</a>
       </td>
     </tr>
     <?php

@@ -21,12 +21,12 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Hello</title>
+    <title>WebAcademy</title>
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -83,14 +83,8 @@
     <input type="text" class="form-control" value="<?php echo $row['username']?>"  name="username" id="username" placeholder="Enter your username">
   </div>
   <div class="mb-3">
-    <label for="course" class="form-label">Course</label>
-    <select class="form-select" name="course" id="course">
-      <option selected>Select a course</option>
-      <option value="web-development">Web Development</option>
-      <option value="data-science">Data Science</option>
-      <option value="mobile-app-development">Mobile App Development</option>
-      <option value="digital-marketing">Digital Marketing</option>
-    </select>
+    <label for="qualification" class="form-label">Courses</label>
+    <input type="text" class="form-control" value="<?php echo $row['course']?>" name="course" id="course" placeholder="Enter your courses">
   </div>
   <button type="submit" class="btn btn-primary">Update</button>
 </form>

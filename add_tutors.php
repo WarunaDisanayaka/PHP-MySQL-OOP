@@ -17,12 +17,12 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Hello</title>
+    <title>WebAcademy</title>
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -63,23 +63,23 @@
 <form method="POST">
   <div class="mb-3">
     <label for="name" class="form-label">Name</label>
-    <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name">
+    <input type="text" class="form-control" name="name" id="name" placeholder="Enter tutor name">
   </div>
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
-    <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email">
+    <input type="email" class="form-control" name="email" id="email" placeholder="Enter tutor email">
   </div>
   <div class="mb-3">
     <label for="username" class="form-label">Username</label>
-    <input type="text" class="form-control" name="username" id="username" placeholder="Enter your username">
+    <input type="text" class="form-control" name="username" id="username" placeholder="Enter tutor username">
   </div>
   <div class="mb-3">
     <label for="qualification" class="form-label">Courses</label>
-    <input type="text" class="form-control" name="course" id="course" placeholder="Enter your courses">
+    <input type="text" class="form-control" name="course" id="course" placeholder="Enter tutor courses">
   </div>
   <div class="mb-3">
     <label for="qualification" class="form-label">Qualification</label>
-    <input type="text" class="form-control" name="qualification" id="qualification" placeholder="Enter your qualification">
+    <input type="text" class="form-control" name="qualification" id="qualification" placeholder="Enter tutor qualification">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

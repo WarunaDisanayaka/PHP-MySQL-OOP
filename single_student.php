@@ -1,11 +1,13 @@
 <?php
     include_once 'classes/Register.php';
-    include_once 'classes/Student.php';
     $re = new Register();
 
-    if ($_SERVER['REQUEST_METHOD']=='POST') {
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+    }
 
-        $register  = $re->addStudent($_POST);
+    if ($_SERVER['REQUEST_METHOD']=='POST') {
+        $register  = $re->updateStudent($_POST,$id);
     }
 
 ?>
@@ -24,7 +26,7 @@
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -62,25 +64,33 @@
 <?php
     }
 ?>
+<?php
+    $getStd = $re->getStdById($id);
+    if ($getStd) {
+        while ($row=mysqli_fetch_assoc($getStd)) {
+?>
 <form method="POST">
   <div class="mb-3">
-    <label for="name" class="form-label">Name</label>
-    <input type="text" class="form-control" name="name" id="name" placeholder="Enter student name">
+    <h5>Name</h5>
+    <p><?php echo $row['name']?></p>
   </div>
   <div class="mb-3">
-    <label for="email" class="form-label">Email</label>
-    <input type="email" class="form-control" name="email" id="email" placeholder="Enter student email">
+    <h5>Email</h5>
+    <p><?php echo $row['email']?></p>
   </div>
   <div class="mb-3">
-    <label for="username" class="form-label">Username</label>
-    <input type="text" class="form-control" name="username" id="username" placeholder="Enter student username">
+    <h5>Username</h5>
+    <p><?php echo $row['username']?></p>
   </div>
   <div class="mb-3">
-    <label for="qualification" class="form-label">Courses</label>
-    <input type="text" class="form-control" name="course" id="course" placeholder="Enter student courses">
+    <h5>Courses</h5>
+    <p><?php echo $row['course']?></p>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<?php
+}
+}
+?>
 
     </div>
 
