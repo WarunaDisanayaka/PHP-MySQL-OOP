@@ -1,8 +1,12 @@
 <?php
+  // Include necessary files
     include_once 'classes/Register.php';
     include_once 'classes/Student.php';
+
+    //Calling Register class
     $re = new Register();
 
+    // Server requesting
     if ($_SERVER['REQUEST_METHOD']=='POST') {
 
         $register  = $re->addStudent($_POST);

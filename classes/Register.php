@@ -196,6 +196,7 @@ class Register
      }
 
 
+    //  Student delete 
      public function delStudent($id){
         $delStd = "DELETE FROM student WHERE id='$id'";
         $result = $result = $this->db->delete($delStd);
@@ -208,6 +209,8 @@ class Register
         }
      }
 
+
+    //  Tutor delete
      public function delTutor($id){
         $delStd = "DELETE FROM tutor WHERE id='$id'";
         $result = $result = $this->db->delete($delStd);

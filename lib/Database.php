@@ -15,14 +15,16 @@
             $this->dbConnect();
         }
 
+        // Database connection
         public function dbConnect(){
             $this->link = mysqli_connect($this->host,$this->user,$this->password,$this->database);
             if (!$this->link) {
                 $this->error = "Database Connection Failed: " . mysqli_connect_error();
-                echo $this->error; // or use print statement: print $this->error;
+                echo $this->error; 
             }
         }
         
+        // Insert function
         public function insert($query){
             $result = mysqli_query($this->link,$query) or die($this->link->error.__LINE__);
             if ($result) {
@@ -32,7 +34,7 @@
             }
         }
 
-
+        // Selection fucntion
         public function select($query){
             $result = mysqli_query($this->link,$query) or die($this->link->error.__LINE__);
             if (mysqli_num_rows($result)>0) {
@@ -42,6 +44,7 @@
             }
         }
 
+        // Delete function
         public function delete($query){
             $result = mysqli_query($this->link,$query) or die($this->link->error.__LINE__);
             if ($result) {

@@ -1,7 +1,11 @@
 <?php
+      // Include necessary files
     include_once 'classes/Register.php';
+
+      //Calling Register class
     $re = new Register();
 
+     // Server requesting
     if ($_SERVER['REQUEST_METHOD']=='POST') {
         $register  = $re->addTutors($_POST);
     }
